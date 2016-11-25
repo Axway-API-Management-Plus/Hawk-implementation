@@ -18,8 +18,8 @@ And https://github.com/hueniverse/hawk
 **Relation to OAuth2**
 - Hawk is not a replacement for OAuth2 !
 - Hawk can be used with OAuth2:
-..* As a replacement for client_id, client_secret
-..* As a complement of the access_token / refresh_token
+  * As a replacement for client_id, client_secret
+  * As a complement of the access_token / refresh_token
 
 
 ## API Management Version Compatibilty
