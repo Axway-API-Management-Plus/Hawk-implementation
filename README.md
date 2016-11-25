@@ -139,18 +139,116 @@ Note: if you plan to use the demo interface with the API Manager, add the CORS P
 [Screenshot13]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot13.png  "Screenshot13"  
 
 
+**Disable the SSL Hostname Verification**
+- Click “Tasks > Manage Gateway Settings”
+- Click “General”
+- Make sure “SSL cert’s name must match …” is NOT checked
+
+![alt text][Screenshot14]
+[Screenshot14]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot14.png  "Screenshot14"  
+
+
+**Declare a new “Inbound Security Policy”**
+- Click “Tasks > Manage Gateway Settings”
+- Drill down to “API Manager > Inbound Security Policies”
+- Add the “Validate HAWK Credentials” policy
+
+![alt text][Screenshot15]
+[Screenshot15]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot15.png  "Screenshot15"  
+
+**Create a test user in the “Local Users” repository**
+- Drill down to “Users and groups > Users”
+- Click ”Add” and define a username and a password 
+
+![alt text][Screenshot16]
+[Screenshot16]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot16.png  "Screenshot16"  
+
+**Define a new KPS Collection**
+- Drill down to “Key Property Store”
+- Click “Add KPS Collection”
+- Make sure the name and alias are set to “hawk”
+
+![alt text][Screenshot17]
+[Screenshot17]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot17.png  "Screenshot17" 
+
+**Define a new KPS Table**
+- Drill down to “Key Property Store > hawk”
+- Right click “hawk” and select “Add Table...”
+
+![alt text][Screenshot18]
+[Screenshot18]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot18.png  "Screenshot18" 
+ 
+
+**Generate a new Client ID / Client Secret**
+- Open the API Manager Web Interface (port 8075)
+- Drill Down to ”Client Registry > Applications”
+- Click ”New Application”
+- In the “Authentication” tab, generate a new client ID
+- Write down the Client ID / Client Secret
 
 
 ## Usage
+**Demo Scenario**
+- HAWK Key distribution through OAuth
+- HAWK Request Integrity
+- HAWK Anti-Replay Protection
+- HAWK Authentication in the API Manager
 
-Some remarks about the policy : 
-- First of all, make sure you selected the “Rhino engine JRE7 and earlier” option
-- To get an instance of the EHcache’s CacheManager, the script has to get first an instance of a cache
-- It uses the “Local maximum messages” (one of the default caches) 
-- When used in production, it is safer to use a dedicated cache so that if default caches are removed, the scripts still works
-- The script returns true, if caches have been flushed. False otherwise. Make sure to reflect this as HTTP Status code ! 
+
+**HAWK Key distribution through Oauth **
+- Open http://<apigateway>:8080/demo/ in Firefox
+- Copy / Paste your client_id and client_secret
+- Type the username and password of your test user
+- Click “Request Token !”
+
+![alt text][Screenshot19]
+[Screenshot19]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot19.png  "Screenshot19" 
+
+- The “HAWK Key” and “HAWK KeyID” should be filled automatically
+- Press F12 to open firebug and show the OAuth response
+
+![alt text][Screenshot20]
+[Screenshot20]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot20.png  "Screenshot20" 
+
+**HAWK Request Integrity**
+- Click “Test HAWK !”
+- Show the request “Authorization Header” in Firebug
+
+![alt text][Screenshot21]
+[Screenshot21]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot21.png  "Screenshot21" 
+
+**HAWK Anti-Replay Protection**
+- In Firebug, click “Edit and Resend”, and just send the request “as-is”
+
+![alt text][Screenshot22]
+[Screenshot22]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot22.png  "Screenshot22" 
+
+
+- The request should fail because of the anti-replay protection
    
 
+**HAWK Authentication in the API Manager **
+- Create a backend API
+  * Drill down to “API Registration > Backend API”
+  * Click “New API” and select ”New”
+  * You can use the “/fake” API as backend
+
+
+  
+- Create a backend API
+  * Drill down to “API Registration > Frontend API”
+  * Click “New API” and select ”New API from backend API”
+  * In “inbound security”, choose “Invoke Policy” and select the “Validate HAWK Credentials”
+
+  
+- Just change the HAWK Resource URL in the demo web page to target the API Portal Traffic listener (8065)
+
+
+
+   
+   
+   
+   
 ## Bug and Caveats
 
 ```
