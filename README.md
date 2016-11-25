@@ -1,12 +1,12 @@
 # Description
-A bit of history…
+**A bit of history…**
 - OAuth2 is the de-facto standard for authentication and session handling on mobile devices
 - But it lacks (at least at its very beginning) a support for integrity & authenticity of messages
 
 Refer to http://alexbilbie.com/2012/11/hawk-a-new-http-authentication-scheme/
 And https://github.com/hueniverse/hawk
 
-Features provided by HAWK
+**Features provided by HAWK**
 - Authentication of the Client
 - Authentication of the Server
 - Replay Protection
@@ -15,11 +15,11 @@ Features provided by HAWK
 ![alt text][Screenshot1]
 [Screenshot1]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot1.png  "Screenshot1"   
 
-Relation to OAuth2
+**Relation to OAuth2**
 - Hawk is not a replacement for OAuth2 !
 - Hawk can be used with OAuth2
-..* As a replacement for client_id, client_secret
-..* As a complement of the access_token / refresh_token
++ As a replacement for client_id, client_secret
++ As a complement of the access_token / refresh_token
 
 
 ## API Management Version Compatibilty
