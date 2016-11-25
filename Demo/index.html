@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HAWK Demo</title>
+  <script type="text/javascript" src="browser.js"></script>
+  <script type="text/javascript">
+
+function testHawk() {
+  var body = document.getElementById("hawk").elements.namedItem("request_payload").value;
+  var method = "POST";
+  var contentType = "text/plain";
+
+  var http = new XMLHttpRequest();
+  var url = document.getElementById("hawk").elements.namedItem("hawk_endpoint").value;
+
+  var hawkid = document.getElementById("hawk").elements.namedItem("id").value;
+  var hawkkey = document.getElementById("hawk").elements.namedItem("key").value;
+  hawkkey = CryptoJS.enc.Base64.parse(hawkkey);
+
+  http.open("POST", url, true);
+  http.withCredentials = true; // Allow "Authorization" header with CORS Requests
+  http.setRequestHeader("Content-type", contentType);
+
+  var authHeader = hawk.client.header(url, method, {
+    credentials: {
+                id: hawkid,
+                key: hawkkey,
+                algorithm: 'sha256'
+    },
+    payload: body,
+    contentType: contentType,
+  });
+  http.setRequestHeader("Authorization", authHeader.field);
+  console.log(authHeader.field)
+
+  http.onreadystatechange = function() {
+    if(this.readyState == 4 && this.status == 200) {
+      var resp = this.responseText;
+      console.log(resp);
+      document.getElementById("hawk").elements.namedItem("response_payload").value = resp;
+    }
+  };
+
+  http.send(body);
+}
+
+function buildOAuthRequest() {
+  var items = ["client_id", "client_secret", "username", "password", "scope"];
+  var len = items.length;
+  var payload = "";
+  for (var i = 0; i < len; i++) {
+    var key = items[i];
+    var value = document.getElementById("oauth").elements.namedItem(key).value
+    value = encodeURIComponent(value);
+    payload += (i > 0 ? "&" : "") + key + "=" + value;
+  }
+  payload += "&token_type=hawk&grant_type=password";
+  return payload;
+}
+
+function requestToken() {
+  var http = new XMLHttpRequest();
+  var url = document.getElementById("oauth").elements.namedItem("token_endpoint").value;
+
+  http.open("POST", url, true);
+  http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  http.onreadystatechange = function() {
+    if(this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+        console.log(resp);
+        if (resp.hawk) {
+          console.log(resp.hawk);
+          document.getElementById("hawk").elements.namedItem("key").value = resp.hawk.key;
+          document.getElementById("hawk").elements.namedItem("id").value = resp.hawk.id;
+        }
+    }
+  };
+
+  http.send(buildOAuthRequest());
+}
+  </script>
+</head>
+<body>
+  <h1>OAuth Token Request</h1>
+  <form id="oauth">
+    <table>
+      <tr>
+        <td>Token Endpoint :</td>
+        <td colspan="3"><input type="text" name="token_endpoint" value="https://localhost:8089/api/oauth/token" size="80" /></td>
+      </tr>
+      <tr>
+        <td>Username :</td>
+        <td><input type="text" name="username" value="" size="30" /></td>
+        <td>Password :</td>
+        <td><input type="text" name="password" value="" size="30" /></td>
+      </tr>
+      <tr>
+        <td>Client ID :</td>
+        <td><input type="text" name="client_id" value="" size="30" /></td>
+        <td>Client Secret</td>
+        <td><input type="text" name="client_secret" value="" size="30" /></td>
+      </tr>
+      <tr>
+        <td>Scopes :</td>
+        <td colspan="3"><input type="text" name="scope" value="openid" size="20" /></td>
+      </tr>
+      <tr>
+        <td colspan="3">&nbsp;</td>
+        <td><input type="button" value="Request Token !" onClick="requestToken()"/></td>
+      </tr>
+    </table>
+  </form>
+
+  <h1>HAWK Request</h1>
+  <form id="hawk">
+    <table>
+      <tr>
+        <td>HAWK Resource :</td>
+        <td colspan="3"><input type="text" name="hawk_endpoint" value="http://localhost:8080/hawk" size="80" /></td>
+      </tr>
+      <tr>
+        <td>HAWK Key :</td>
+        <td><input type="text" name="key" value="" size="30" /></td>
+        <td>HAWK KeyID :</td>
+        <td><input type="text" name="id" value="" size="30" /></td>
+      </tr>
+      <tr>
+        <td>Request Payload :</td>
+        <td><input type="text" name="request_payload" value="Hi !" size="30" /></td>
+        <td>Response Payload :</td>
+        <td><input type="text" name="response_payload" value="" size="30" /></td>
+      </tr>
+      <tr>
+        <td colspan="3">&nbsp;</td>
+        <td><input type="button" value="Test HAWK !" onClick="testHawk()"/></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
