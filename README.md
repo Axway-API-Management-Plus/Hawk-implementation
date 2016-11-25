@@ -21,7 +21,22 @@ And https://github.com/hueniverse/hawk
   * As a replacement for client_id, client_secret
   * As a complement of the access_token / refresh_token
 
+**Sample integration between OAuth and HAWK**
+![alt text][Screenshot2]
+[Screenshot2]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot2.png  "Screenshot2"   
+  
 
+**Feature coverage by this [sample] implementation**
+  
+|HAWK Feature                                   | In this Sample Implementation ? |
+|-----------------------------------------------|--------------------------------:|
+|Request Integrity                              |Yes                              |
+|Payload Integrity                              |Yes                              |
+|Protection against Replay Attacks              |Yes                              |
+|Response Integrity                             |No                               |
+|Time Synchronization between client and server |No                               |
+|Supported HMAC Algorithms                      |HMAC-SHA256                      |
+  
 ## API Management Version Compatibilty
 This artefact was successfully tested for the following versions:
 - To be completed
