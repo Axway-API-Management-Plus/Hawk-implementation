@@ -195,7 +195,7 @@ Note: if you plan to use the demo interface with the API Manager, add the CORS P
 - HAWK Authentication in the API Manager
 
 
-**HAWK Key distribution through Oauth **
+**HAWK Key distribution through Oauth**
 - Open http://<apigateway>:8080/demo/ in Firefox
 - Copy / Paste your client_id and client_secret
 - Type the username and password of your test user
@@ -223,9 +223,11 @@ Note: if you plan to use the demo interface with the API Manager, add the CORS P
 ![alt text][Screenshot22]
 [Screenshot22]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot22.png  "Screenshot22" 
 
-
 - The request should fail because of the anti-replay protection
-   
+
+![alt text][Screenshot23]
+[Screenshot23]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot23.png  "Screenshot23" 
+
 
 **HAWK Authentication in the API Manager **
 - Create a backend API
@@ -233,27 +235,61 @@ Note: if you plan to use the demo interface with the API Manager, add the CORS P
   * Click “New API” and select ”New”
   * You can use the “/fake” API as backend
 
+![alt text][Screenshot24]
+[Screenshot24]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot24.png  "Screenshot24" 
 
   
-- Create a backend API
+- Create a Frontend API
   * Drill down to “API Registration > Frontend API”
   * Click “New API” and select ”New API from backend API”
   * In “inbound security”, choose “Invoke Policy” and select the “Validate HAWK Credentials”
 
+![alt text][Screenshot25]
+[Screenshot25]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot25.png  "Screenshot25" 
   
-- Just change the HAWK Resource URL in the demo web page to target the API Portal Traffic listener (8065)
+  - Just change the HAWK Resource URL in the demo web page to target the API Portal Traffic listener (8065)
 
-
+![alt text][Screenshot26]
+[Screenshot26]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot26.png  "Screenshot26" 
 
    
-   
-   
+## Appendices
+
+**Validate HAWK Credentials**
+
+![alt text][Screenshot27]
+[Screenshot27]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot27.png  "Screenshot27" 
+
+
+**Persist HAWK Key**
+
+![alt text][Screenshot28]
+[Screenshot28]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot28.png  "Screenshot28" 
+
+**HAWK-enabled Test Endpoint**
+
+
+![alt text][Screenshot29]
+[Screenshot29]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot29.png  "Screenshot29" 
+
+**Add HAWK Key to OAuth2 Token Response**
+
+![alt text][Screenshot30]
+[Screenshot30]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot30.png  "Screenshot30" 
+
+
+**Resource Owner Password Credentials**
+
+![alt text][Screenshot31]
+[Screenshot31]: https://github.com/Axway-API-Management/Hawk-implementation/blob/master/Screenshot31.png  "Screenshot31" 
+
+  
    
 ## Bug and Caveats
+Remaining Work:
+- Implement Response Integrity
+- Implement Time Synchronization
 
-```
-To be completed
-```
 
 ## Contributing
 
