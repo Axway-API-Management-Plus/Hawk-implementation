@@ -15,7 +15,7 @@ And https://github.com/hueniverse/hawk
 
 ![alt text][Screenshot1] 
 
-[Screenshot1]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot1.png  "Screenshot1"   
+[Screenshot1]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot1.png  "Screenshot1"
 
 
 **Relation to OAuth2**
@@ -29,8 +29,8 @@ And https://github.com/hueniverse/hawk
 
 ![alt text][Screenshot2] 
 
-[Screenshot2]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot2.png  "Screenshot2"   
-  
+[Screenshot2]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot2.png  "Screenshot2"
+
 
   
 **Feature coverage by this [sample] implementation**
@@ -66,13 +66,15 @@ This artefact was successfully tested for the following versions:
 
 ![alt text][Screenshot3] 
 
-[Screenshot3]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot3.png  "Screenshot3"   
+[Screenshot3]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot3.png  "Screenshot3"
+
 
 **Install Overview**
 
 ![alt text][Screenshot4] 
 
-[Screenshot4]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot4.png  "Screenshot4"   
+[Screenshot4]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot4.png  "Screenshot4"
+
 
 **Import Policies**
 - Import “hawk-policies.xml” into your policy studio
@@ -85,13 +87,14 @@ This artefact was successfully tested for the following versions:
 
 ![alt text][Screenshot5] 
 
-[Screenshot5]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot5.png  "Screenshot5"   
+[Screenshot5]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot5.png  "Screenshot5"
+
 
 **Make sure the imported policies are bound to a path (“Default Services” Listener)**
 
 ![alt text][Screenshot6] 
 
-[Screenshot6]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot6.png  "Screenshot6"   
+[Screenshot6]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot6.png  "Screenshot6"
 
 **Make sure the Node Manager Admin Interface URL is correct**
 - Open the “Persist HAWK Key” policy
@@ -100,7 +103,7 @@ This artefact was successfully tested for the following versions:
 
 ![alt text][Screenshot7] 
 
-[Screenshot7]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot7.png  "Screenshot7"   
+[Screenshot7]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot7.png  "Screenshot7"
 
 **Check the Node Manager Admin Credentials**
 - Drill down to External Connections > Client Credentials > HTTP Basic
@@ -108,7 +111,7 @@ This artefact was successfully tested for the following versions:
 
 ![alt text][Screenshot8] 
 
-[Screenshot8]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot8.png  "Screenshot8"  
+[Screenshot8]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot8.png  "Screenshot8"
 
 **Check the “HAWK Nonce” Cache**
 - This cache is used to check if a nonce has already been used before. 
@@ -116,21 +119,21 @@ This artefact was successfully tested for the following versions:
 
 ![alt text][Screenshot9] 
 
-[Screenshot9]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot9.png  "Screenshot9"  
- 
+[Screenshot9]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot9.png  "Screenshot9"
+
 **Setup the CORS Profile “CORS Anywhere” (1/2)**
 - Drill down to “Libraries > CORS Profiles” and create a new profile
 
 ![alt text][Screenshot10] 
 
-[Screenshot10]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot10.png  "Screenshot10"  
+[Screenshot10]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot10.png  "Screenshot10"
 
 
 **Setup the CORS Profile “CORS Anywhere” (2/2)**
 
 ![alt text][Screenshot11] 
 
-[Screenshot11]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot11.png  "Screenshot11"  
+[Screenshot11]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot11.png  "Screenshot11"
 
 Note: The “Max. age” settings is important, otherwise the “Firebug” plugin of Firefox does not behave correctly.
 
@@ -140,7 +143,7 @@ Note: The “Max. age” settings is important, otherwise the “Firebug” plug
 
 ![alt text][Screenshot12] 
 
-[Screenshot12]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot12.png  "Screenshot12"  
+[Screenshot12]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot12.png  "Screenshot12"
 
 Note: if you plan to use the demo interface with the API Manager, add the CORS Profile to the “API Manager Traffic” Listener too.
 
@@ -149,7 +152,7 @@ Note: if you plan to use the demo interface with the API Manager, add the CORS P
 
 ![alt text][Screenshot13] 
 
-[Screenshot13]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot13.png  "Screenshot13"  
+[Screenshot13]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot13.png  "Screenshot13"
 
 
 **Disable the SSL Hostname Verification**
@@ -159,7 +162,7 @@ Note: if you plan to use the demo interface with the API Manager, add the CORS P
 
 ![alt text][Screenshot14] 
 
-[Screenshot14]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot14.png  "Screenshot14"  
+[Screenshot14]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot14.png  "Screenshot14"
 
 
 **Declare a new “Inbound Security Policy”**
@@ -169,7 +172,8 @@ Note: if you plan to use the demo interface with the API Manager, add the CORS P
 
 ![alt text][Screenshot15] 
 
-[Screenshot15]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot15.png  "Screenshot15"  
+[Screenshot15]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot15.png  "Screenshot15"
+
 
 **Create a test user in the “Local Users” repository**
 - Drill down to “Users and groups > Users”
@@ -177,7 +181,8 @@ Note: if you plan to use the demo interface with the API Manager, add the CORS P
 
 ![alt text][Screenshot16] 
 
-[Screenshot16]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot16.png  "Screenshot16"  
+[Screenshot16]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot16.png  "Screenshot16"
+
 
 **Define a new KPS Collection**
 - Drill down to “Key Property Store”
