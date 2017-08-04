@@ -7,7 +7,7 @@ Refer to http://alexbilbie.com/2012/11/hawk-a-new-http-authentication-scheme/
 And https://github.com/hueniverse/hawk
 
 
-**Features provided by HAWK**
+## Features provided by HAWK
 - Authentication of the Client
 - Authentication of the Server
 - Replay Protection
