@@ -14,6 +14,7 @@ And https://github.com/hueniverse/hawk
 - Integrity of the request (URL + Body)
 
 ![alt text][Screenshot1]
+
 [Screenshot1]: https://github.com/Axway-API-Management-Plus/Hawk-implementation/blob/master/Readme/Screenshot1.png  "Screenshot1"   
 
 
